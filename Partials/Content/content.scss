@@ -1,0 +1,30 @@
+@mixin my-mixin {
+    background-color: blue;
+    color: white;
+    @content;
+  }
+  
+  .my-class {
+    @include my-mixin {
+      font-size: 18px;
+    }
+  }
+
+
+// ================================
+  @mixin box($width, $height) {
+    width: $width;
+    height: $height;
+    border: 1px solid black;
+    padding: 10px;
+    
+    @content;
+  }
+  .my-box {
+    @include box(200px, 100px) {
+      background-color: yellow;
+      color: black;
+    }
+  }
+    
+  

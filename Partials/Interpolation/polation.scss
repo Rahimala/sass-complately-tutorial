@@ -1,0 +1,20 @@
+@mixin button-style($color) {
+    background-color: $color;
+    border: 2px solid #{darken($color, 10%)};
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn {
+    @include button-style(grey)
+}
+
+.btn-primary {
+    @include button-style(blue);
+}
+  
+  .btn-secondary {
+    @include button-style(green);
+}

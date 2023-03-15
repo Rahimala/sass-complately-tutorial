@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Example using @extend in SCSS</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="button"></div>
+</body>
+
+</html>
+
+<!-- 
+
+    In SCSS (Sass), @extends is a directive that allows you to inherit styles from one selector to another. The syntax for using @extends in SCSS is as follows:
+
+    
+.selector {
+  /* styles for .selector */
+}
+
+.new-selector {
+  @extend .selector;
+  /* additional styles for .new-selector */
+}
+
+.selector-1, .selector-2 {
+  /* styles for .selector-1 and .selector-2 */
+}
+
+.new-selector {
+  @extends .selector-1, .selector-2;
+  /* additional styles for .new-selector */
+}
+
+
+
+ -->

@@ -1,0 +1,223 @@
+//todo: "if" statement 
+$background-color:red;
+
+.body {
+    width: 150px;
+    height: 150px;
+}
+
+@if $background-color == red {
+    .body {
+        background-color: $background-color;
+    }
+}
+
+//todo: "@if @else" statement
+$bg-color:#f0ce0c;
+
+.body-1 {
+    width: 150px;
+    height: 150px;
+}
+
+@if $bg-color ==  #f0ce0c{
+    .body-1 {
+        background-color: $bg-color;
+    }
+}@else {
+    .body-1 {
+        background-color:#e40cf0 ;
+    }
+}
+
+
+//todo: "not" function..
+$message-type: warning;
+
+.container {
+  max-width: 150px;
+  height: 150px;
+  background-color: aqua;
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+
+    // Apply different styles to paragraphs based on the $message-type variable.
+    @if not($message-type == 'warning') {
+      color: green;
+    } @else {
+      color: red;
+      font-weight: bold;
+    }
+  }
+}
+
+//todo: Using "and" operator..
+$background-color:#fff;
+$font-color:#333;
+$font-size:25px;
+
+.body-3 {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: $background-color;
+    color: $font-color;
+    font-size: $font-size;
+
+// Use the "and" operator to set styles based on multiple conditions
+@if $background-color == #fff and $font-color == #333fff {
+    font-weight: bold;
+  } @else {
+    font-style: italic;
+  }
+}
+
+
+//todo:  "==" operator 
+$heading-type: h1;
+
+.body-4 {
+    background-color: #333;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    color: #fff;
+
+    @if $heading-type == h1 {
+        h1 {
+            font-size: 2.1rem;
+        }
+    } @else {
+        h2 {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+//todo: <= operator  less than
+$font-size: 16px;
+.box-5 {
+    background-color: #5e3939;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    color: #fff;
+    & {
+        font-size: $font-size;
+
+        @if $font-size <= 18px {
+            line-height: 1.6;
+            color: #fff;
+        } @else {
+            line-height: 1.8;
+            color: red;
+        }
+    }
+}
+
+// ">=" operator greater than
+
+$font-size: 20px;
+.box-6 {
+    background-color: #5e3939;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+   color: #fff;
+
+   & {
+    font-size: $font-size;
+
+    @if $font-size >= 25px {
+        font-weight: bold;
+        font-style: italic;
+        color: #333;
+    } @else {
+        font-size: 2rem;
+        font-style: italic;
+        color: #dabbbb;
+    }
+   }
+}
+
+// "<" operator less than
+
+$width: 150px;
+$max-width:400px;
+
+.box-7 {
+    height: 150px;
+    width: $width;
+    max-width: $max-width;
+
+    @if $width < $max-width {
+        background-color: red;
+    } @else {
+        background-color: black;
+    }
+}
+
+
+// "!=" operator
+$background-color: #FFF;
+.box-8 {
+    height: 150px;
+    width: 150px;
+    background-color: #FFF;
+
+    @if $background-color != #000 {
+        color: #f7f70a;
+    } @else {
+        color: #FFF;
+    }
+}
+
+// "or" operator
+
+$color:red;
+$bg-color:blue;
+
+.box-9 {
+    @if $color == red or $bg-color == blue {
+        width: 400px;
+        height: 420px;
+        background-color: #000;
+    } @else {
+        width: 150px;
+        height: 150px;
+        background-color: #5e3939;
+    }
+}
+
+//  <!-- ! Mini Project If conditon -->
+$card-type:primary;
+
+.card-2 {
+    padding: 20px;
+    margin: 10px;
+    height: 128px;
+    width: 360px;
+    border-radius: 5px;
+    
+    @if $card-type == primary {
+        background-color: rgb(84, 84, 95);
+        color: white;
+    } @else if $card-type == secondary {
+        background-color: gray;
+        color: black;
+    } @else {
+        background-color: white;
+        color: black;
+    }
+    h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    P {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+

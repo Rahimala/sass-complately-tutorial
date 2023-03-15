@@ -1,0 +1,143 @@
+// todo: Defining a variable:
+
+body {
+  box-sizing: border-box;
+}
+// Variable scoping:
+
+
+$para-color:#edd4d4;
+$bg-background-color:#d17463;
+$border:2px solid #23ba3a;
+$pa-padding:20px;
+$w-width:120px;
+$h-height:120px;
+$d-display:flex;
+
+.var {
+  background-color: $bg-background-color;
+  padding:$pa-padding;
+  width:$w-width;
+  height:$h-height;
+  border:$border;
+  display: $d-display;
+  justify-content: center;
+  align-items: center;
+}
+
+.exam-1 {
+  color: $para-color;
+}
+
+// End Defining a variable:
+
+// todo: start-Variable interpolation- #{}:
+
+$bg-color:#8f9c1c;
+$inter-color:#2e31e6;
+
+.polation {
+  background-color: #{$bg-color};
+
+  padding: $pa-padding;
+  height: $h-height;
+  width: $w-width;
+  display: $d-display;
+  justify-content: center;
+  align-items: center;
+}
+.inter {
+  color: $inter-color;
+}
+// End--Variable interpolation:
+
+// todo: Lists:start-Variable 
+// $list-name: (list-item-1, list-item-2, list-item-3);
+
+$list:#d6e019, #e03319,#2d19e0;
+
+.box {
+  width: 140px;
+  height: 140px;
+  background-color:nth($list, 2);
+}
+
+// example of using Sass lists with HTML and CSS
+// todo: $colors: (primary: #4285F4,secondary: #DB4437,tertiary: #F4B400);
+
+
+// Define a list of colors
+
+$colors:(primary:#4285F4, secondary:#DB4437, tertiary:#F4B400);
+
+@each $name, $color in $colors {
+  .#{$name}-color {
+    background-color: $color;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+  }
+}
+
+// example
+
+$colorx: red, green, blue;
+
+@each $colors in $colorx {
+  .col-#{$colors} {
+    color: $colors;
+  }
+}
+
+// todo: Maps: Maps: Sass also provides a way to create maps, which are collections of key-value pairs
+
+$colors: (
+  primary: #007bff,
+  secondary: #6c757d,
+  success: #28a745,
+  danger: #dc3545,
+  warning: #ffc107,
+  info: #17a2b8
+);
+
+button {
+  background-color: map-get($colors, primary);
+  // map-get() function to retrieve the values of the primary
+}
+
+// todo; Global variables
+
+:root {
+  --primary-color: #ffc400;
+}
+.global {
+  background-color: var(--primary-color);
+}
+// $primary-color: var(--primary-color);
+/* 
+Sass, global variables are variables that can be accessed from anywhere in your code. They are defined outside of any selector or block,
+*/
+
+
+// Variable scoping:
+
+$primary-color: blue;
+
+.parent {
+  $primary-color: red;
+
+  h3 {
+    color: $primary-color;
+  }
+
+  .child {
+    background-color: $primary-color;
+  }
+}
+
+body {
+  background-color: $primary-color;
+}
+
+/* In this modified example, we're using the !global flag to make the $color variable defined within the .parent scope global. This means that any changes made to $color within the .parent scope will affect the value of $color globally. So in this case, the background color of both the .child selector and the body element will be red. */
+

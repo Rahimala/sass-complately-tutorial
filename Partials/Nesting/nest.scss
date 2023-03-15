@@ -1,0 +1,58 @@
+// CSS selectors..
+
+.box-nest {
+    background-color: #ccc;
+    padding: 10px;
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+// Mixins..
+@mixin mixin($bg-color, $padding) {
+    background-color: $bg-color;
+    padding: $padding;
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+.nest-mixin {
+    @include mixin(#ccc, 10px);
+    margin: 10px;
+
+    &:hover {
+        background-color:#eee;
+    }
+}
+
+// Variables
+$primary-color: #007bff;
+
+.nest-variables {
+  background-color: $primary-color;
+  padding: 10px;
+
+  h1 {
+    color: white;
+  }
+
+  p {
+    color: lighten($primary-color, 20%);
+  }
+}
+

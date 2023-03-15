@@ -1,0 +1,75 @@
+/* In Sass, a @for loop allows you to iterate over a range of values and perform an action for each iteration. The basic syntax of a @for loop in Sass is as follows:
+ @for $variable from <start> through <end> {
+  // code to be executed
+}
+Here, $variable is the loop variable that will be assigned each value in the range from <start> to <end>. The keyword through is used to specify that the loop should include the final value in the range. If you want to exclude the final value, you can use the keyword to instead of through.
+ */
+
+//     <!-- @for loop: -->
+$list-length:5;
+
+@for $i from 1 through $list-length {
+    .item-#{$i} {
+        font-size: large;
+    }
+}
+
+// @while loop:
+/* $counter variable is initially set to 1, and the loop will continue as long as $counter is less than or equal to 5 */
+// nside the loop, the #{$counter} interpolation is used to dynamically generate the CSS class name, which is .boxs-1 for the first iteration,
+$counter:1;
+
+@while $counter <= 2 {
+    .boxs-#{$counter} {
+        width: 50px * $counter;
+        height: 50px * $counter;
+        background-color: red;
+        margin: 5px;
+    }
+    $counter: $counter + 1
+}
+
+
+// @each loop 
+$colors: red, lime, green;
+
+@each $color in $colors {
+  .#{$color} {
+    color: $color;
+    font-size: 2rem;
+  }
+}
+
+// @each loop  exam 1
+$font-sizes: (
+  small: 20px,
+  medium: 25px,
+  large: 30px
+);
+
+@each $name, $size in $font-sizes {
+  .#{$name} {
+    font-size: $size;
+  }
+}
+
+// Define a list of links
+
+$colors: (
+  primary: #007bff,
+  secondary: #6c757d,
+  success: #28a745,
+  danger: #dc3545,
+  warning: #ffc107,
+  info: #17a2b8
+);
+.div {
+    background-color: map-get($colors, primary);
+    color: map-get($colors, secondary);
+  }
+
+  /* map-get() function to retrieve the values associated with the primary */
+
+
+
+

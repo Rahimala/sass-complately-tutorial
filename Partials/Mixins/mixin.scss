@@ -1,0 +1,66 @@
+@mixin card($background-color, $border-color, $border-radius) {
+    background-color: $background-color;
+    border: 1px solid $border-color;
+    border-radius:$border-radius;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    @include card(#fff, #ddd, 5px);
+}
+
+.card-1 {
+    @include card(#fff, #ddd, 5px);
+}
+
+//    <!-- here's an example 1 -->
+
+// Define color variables
+$primary-color:#0074D9;
+$secondary-color: #FF4136;
+$success-color: #2ECC40;
+$warning-color: #FF851B;
+$info-color: #39CCCC;
+
+
+// Define mixin for button styling
+@mixin button($background-color, $text-color) {
+    background-color: $background-color;
+    color: $text-color;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+// Use mixins to style buttons
+
+.button-primary {
+    @include button($primary-color, #fff);
+}
+
+.button-secondary {
+    @include button($secondary-color, #fff);
+}
+
+.button-success {
+    @include button($success-color, #fff);
+}
+  
+  .button-warning {
+    @include button($warning-color, #fff);
+}
+  
+  .button-info {
+    @include button($info-color, #fff);
+}
+
+// Sass

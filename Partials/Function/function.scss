@@ -1,0 +1,125 @@
+// todo: Define the Sass function
+
+@function line-height($font-size) {
+    $line-height:$font-size * 2.5;
+    @return $line-height;
+}
+
+.function {
+    font-size: 16px;
+    line-height: line-height(16px);
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px;
+}
+
+//  <!-- Here's an example  2-->
+// todo: lighten(), darken();
+$background-color:#336699;
+.element {
+    // background-color: lighten($color: #000000, $amount: 0);
+    // background-color: lighten(#336699, 20%);
+    // background-color: lighten($background-color, 20%);
+    background-color: darken($background-color, 20%);
+}
+
+//  <!-- Here's an example  3-->
+
+@function get-color($hue) {
+    @return hsl($hue, 70%, 50%);
+}
+
+.element-1 {
+    background-color: get-color(200);
+    color: get-color(60);
+}
+
+// .box {
+//     background-color: hsl(200, 70%, 50%);
+//     color: hsl(60, 70%, 50%);
+//   }
+
+// <!-- Here's an example  4-->
+@function aspect-ratio($width, $height) {
+    $aspect-ratio: ($height / $width) * 100%;
+    @return $aspect-ratio;
+  }
+  
+  .my-element {
+    width: 300px;
+    height: aspect-ratio(300px, 200px); // Calculate height based on width and aspect ratio
+    background-color: red;
+  }
+
+//     <!-- Here's an example  5-->
+$min-font-size:16px;
+$max-font-size:24px;
+$min-screen-width:320px;
+$max-screen-width:168px;
+
+@function responsive-font-size($min-font-size,$max-font-size, $min-screen-width, $max-screen-width) {
+    $font-range:$max-font-size - $min-font-size;
+    $screen-range:$max-screen-width - $min-screen-width;
+    $font-increment: $font-range / $screen-range;
+
+    @return calc(#{$min-font-size} + #{$font-increment} * (100vw - #{$min-screen-width}));
+}
+
+h1 {
+    font-size: responsive-font-size($min-font-size, $max-font-size, $min-screen-width, $max-screen-width);
+  }
+
+  /* h1 {
+  font-size: calc(16px + 0.8333333333vw);
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  h1 {
+    font-size: calc(16px + 0.8333333333vw);
+  }
+}
+ */
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* a function is a reusable piece of code that takes input arguments and returns a value based on those inputs. Functions can be used to perform calculations, manipulate strings, and generate complex values like gradients or animations. */

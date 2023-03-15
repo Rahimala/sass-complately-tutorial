@@ -1,0 +1,114 @@
+//  <!--examples of  Arithmetic Operators: -->
+$width:100px;
+$padding:20px;
+
+.aritmetic {
+    width: $width + $padding;
+    height: $width - $padding;
+    background-color: rgb(209, 133, 133);
+    color: rgb(14, 12, 12);
+    font-size: 4rem;
+}
+
+// <!--examples of  Comparison Operators: -->
+$width: 100px;
+$max-width:200px;
+
+.comparison {
+    padding: 21px;
+    font-size: 4rem;
+    margin: 10px;
+    color: if($width == $max-width, red, blue);
+    background-color: if($width <= $max-width, yellow, green);
+    border: if($width > $max-width, solid 5px rgb(255, 0, 0), dotted);
+}
+
+// <!--examples of  Logical Operators: -->
+$width:120px;
+$height:200px;
+
+.logical {
+    padding: 20px;
+    font-size: 4rem;
+    color: if($width == $height and $width < $height, red, rgb(18, 15, 220));
+    background-color: if($width <= $height or $width > height, yellow, green);
+    // border: if(not $width > $height, solid 1px black, none);
+}
+
+// <!--examples of String Operators: -->
+$base-font:"Cursive";
+$base-font:bold;
+
+$font-family: $base-font + " " + $base-font;
+
+h1 {
+    font-family: $font-family;
+}
+
+// <!--examples of List  Operators: -->
+
+// Define a list of background colors
+$bg-colors: #f00, #0f0, #00f;
+
+// Loop through the list of background colors and generate HTML
+@each $color in $bg-colors {
+  .bg-#{$color} {
+    background-color: $color;
+  }
+}
+
+// <!--examples of List () Operators: -->
+
+$font-sizes: (small:12px, medium:16px, large:24px);
+
+@each $name, $size in $font-sizes {
+    .font-#{$name} {
+        font-size: $size;
+    }
+}
+
+//  <!--examples of Interpolation #{} Operators: -->
+$pri-color: #99ff00;
+
+.bttn-primary {
+    background-color: #{$pri-color};
+    color: #ff0000;
+}
+
+//    <!--examples of Logical Operators: -->
+$button-small:true;
+$button-large:false;
+
+@if not $button-small {
+    .btn-sm {
+        font-size: 12px;
+    }
+}
+@if $button-large or $button-small {
+    .btn-lg {
+        font-size: 24px;
+    }
+}
+
+// <!--examples of Comparison Operators: -->
+
+$heading-size:24px;
+
+@if $heading-size > 36px {
+    h1 {
+        font-size: $heading-size;
+    }
+}
+
+@else if $heading-size < 18px {
+    h6 {
+        font-size: $heading-size;
+    }
+}
+
+@else {
+    h2, h3, h4, h5 {
+        font-size: $heading-size;
+    }
+}
+
